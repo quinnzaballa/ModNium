@@ -3,3 +3,7 @@
 
 #ignore indesign files (keep pdf only)
 *.indd
+
+#Ignore Others
+*.env
+*.bkp
