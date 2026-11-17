@@ -7,3 +7,4 @@
 #Ignore Others
 *.env
 *.bkp
+*.dtmp
