@@ -1319,7 +1319,7 @@
         </entry>
         <entry>
           <string>Label</string>
-          <string>INPUTS</string>
+          <string>IN_BUS</string>
         </entry>
         <entry>
           <string>RectWidth</string>
@@ -1391,7 +1391,7 @@
         </entry>
         <entry>
           <string>Label</string>
-          <string>OUTPUTS</string>
+          <string>OUT_BUS</string>
         </entry>
         <entry>
           <string>RectWidth</string>
@@ -1593,42 +1593,6 @@ end loop</dataString>
         </entry>
       </elementAttributes>
       <pos x="1360" y="-180"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Rectangle</elementName>
-      <elementAttributes>
-        <entry>
-          <string>RectHeight</string>
-          <int>6</int>
-        </entry>
-        <entry>
-          <string>Label</string>
-          <string>MODE TESTS</string>
-        </entry>
-        <entry>
-          <string>RectWidth</string>
-          <int>21</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1360" y="-40"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Rectangle</elementName>
-      <elementAttributes>
-        <entry>
-          <string>RectHeight</string>
-          <int>6</int>
-        </entry>
-        <entry>
-          <string>Label</string>
-          <string>SANITY CHECK</string>
-        </entry>
-        <entry>
-          <string>RectWidth</string>
-          <int>5</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1360" y="-220"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>

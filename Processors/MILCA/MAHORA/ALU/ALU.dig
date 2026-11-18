@@ -182,6 +182,11 @@ Dfl	: Direction Flag (Used for barrel shifting)</string>
       </elementAttributes>
       <pos x="440" y="660"/>
     </visualElement>
+    <visualElement>
+      <elementName>XOR-16.dig</elementName>
+      <elementAttributes/>
+      <pos x="740" y="380"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>

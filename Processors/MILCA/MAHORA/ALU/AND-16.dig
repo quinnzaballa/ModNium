@@ -119,16 +119,6 @@
       </elementAttributes>
       <pos x="780" y="380"/>
     </visualElement>
-    <visualElement>
-      <elementName>FADDER-16.dig</elementName>
-      <elementAttributes/>
-      <pos x="1340" y="360"/>
-    </visualElement>
-    <visualElement>
-      <elementName>AND-16.dig</elementName>
-      <elementAttributes/>
-      <pos x="1160" y="360"/>
-    </visualElement>
   </visualElements>
   <wires>
     <wire>
