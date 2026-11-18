@@ -10,14 +10,14 @@ The ALU (Arithmetic Logic Unit) is the part of the computer's processor that doe
 
 1. ALU Temporary Register 16-bit
    * TREG 16x8
-1. Accumulator 16-bit
+2. Accumulator 16-bit
 
 ##### Logic Units:
 
 1. **XOR**
    * NOT & XNOR mode
-1. **OR**
-1. **AND**
+2. **OR**
+3. **AND**
 
 ##### Arithmetic Unit:
 
@@ -43,34 +43,82 @@ The ALU (Arithmetic Logic Unit) is the part of the computer's processor that doe
 
 ##### Control bits data length:
 
-* Control Bits/OpCode - 4-bits
+* Control Bits/OpCode - 8-bits
 * Count/Mul - 8-bits
 * Status OW Bits - 8-bits
 
-##### Operations:
+## Operations
 
-*Legend:*
+##### ***Legend**:*
 
-* *n = loop count*
-* *lb = Leading bit position*
+* ***n** = loop count*
+* ***lb** = Leading bit position count*
+* ***FSM** = Finite State Machine Operation*
+* ***MiCd** = MicroCode Operation*
+* ***Ext** = Extended*
+* **Bit field:**
+
+<table>
+  <thead>
+    <tr>
+      <th>7</th>
+      <th>6</th>
+      <th>5</th>
+      <th>4</th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NOT</td>
+      <td>MicroCode bit</td>
+      <td colspan="6">FSM / MiCd Select Bits</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Basic Operations
 
 
-| OpCode | Type | Operation | Clock Cycle |  Level  | Specialty                                                |
-| :----- | :--: | --------- | ----------- | :------: | -------------------------------------------------------- |
-| 0x00   | FSM | ADD       | 1           |  Basic  | NA                                                       |
-| 0x01   | FSM | AND       | 1           |  Basic  | NA                                                       |
-| 0x02   | FSM | OR        | 1           |  Basic  | NA                                                       |
-| 0x03   | FSM | XOR       | 1           |  Basic  | NA                                                       |
-| 0x04   | FSM | NAND      | 1           |  Basic  | NA                                                       |
-| 0x05   | FSM | NOR       | 1           |  Basic  | NA                                                       |
-| 0x06   | FSM | XNOR      | 1           |  Basic  | NA                                                       |
-| 0x07   | FSM | SUB       | 1           |  Basic  | NA                                                       |
-| 0x08   | FSM | NOT       | 1           |  Basic  | OpCode + 0x08 will invert the result before accumulator. |
-| 0x09   | MiCd | MUL       | n+1         | Extended | NA                                                       |
-| 0x0A   | MiCd | DIV       | n+lb+2      | Extended | NA                                                       |
+| OpCode   | Type | Operation | Clock Cycle | Specialty                                                |
+| :------- | :--- | --------- | ----------- | :------------------------------------------------------- |
+| 0x00     | FSM  | ADD       | 1           | NA                                                       |
+| 0x01     | FSM  | AND       | 1           | NA                                                       |
+| 0x02     | FSM  | OR        | 1           | NA                                                       |
+| 0x03     | FSM  | XOR       | 1           | NA                                                       |
+| 0x04     | FSM  | NAND      | 1           | NA                                                       |
+| 0x05     | FSM  | NOR       | 1           | NA                                                       |
+| 0x06     | FSM  | XNOR      | 1           | NA                                                       |
+| 0x07     | FSM  | SUB       | 1           | NA                                                       |
+| **0x80** | FSM  | NOT       | 1           | OpCode + 0x80 will invert the result before accumulator |
+
+##### Extended Operations
+
+* Barrel Shifting
+
+
+| OpCode | Type | Operation | Clock Cycle | Specialty |
+| ------ | :--- | --------- | ----------- | --------- |
+| 0x08   | FSM  | ROR       | n+1         | NA        |
+| 0x09   | FSM  | ROL       | n+1         | NA        |
+| 0x0A   | FSM  | RCR       | n+1         | NA        |
+| 0x0B   | FSM  | RCL       | n+1         | NA        |
+| 0x0C   | FSM  | SHR       | n+1         | NA        |
+| 0x0D   | FSM  | SHL       | n+1         | NA        |
+
+* Extended Basic Math
+
+
+| OpCode | Type | Operation | Clock Cycle | Specialty |
+| ------ | :--- | --------- | ----------- | --------- |
+| 0x40   | MiCd | MUL       | n+1         | NA        |
+| 0x41   | MiCd | DIV       | lb+1        | NA        |
 
 ## System Architecture & Design
 
 #### Microarchitectural Block Diagram
 
-![](assets/ALU-ModNium.svg)
+![](https://github.com/quinnzaballa/ModNium/blob/main/Processors/MILCA/MAHORA/ALU/Assets/ALU-ModNium.svg)
