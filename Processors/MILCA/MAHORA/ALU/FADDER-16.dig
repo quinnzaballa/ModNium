@@ -650,6 +650,38 @@ let X = -8;
       </elementAttributes>
       <pos x="860" y="-220"/>
     </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>TEST_MUL</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>		REG_A 		REG_B 		C_IN		SUM_OUT 	C_OUT 		EN
+# Subtraction Calculation : A + !B + 1
+# Set sample subtraction : 10 - 2 = 8
+# 	Minuend
+let A = 10;
+# 	Subtrahend
+let B = 2;
+#	Difference (Result)
+let X = A - B;
+
+# Input data lines : A &gt;= B case; C_out should be high.
+		(A)		(~B)		1		(X)		1		1
+
+# Negative result case (Signed)
+let X = -8;
+# Input data lines : A &lt;= B case; C_out should be low.
+		(B)		(~A)		1		(X)		0		1</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="1000" y="-220"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
