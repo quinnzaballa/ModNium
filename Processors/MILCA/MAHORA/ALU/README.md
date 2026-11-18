@@ -56,7 +56,7 @@ The ALU (Arithmetic Logic Unit) is the part of the computer's processor that doe
 * ***FSM** = Finite State Machine Operation*
 * ***MiCd** = MicroCode Operation*
 * ***Ext** = Extended*
-* **Bit field:**
+* **Bit fields:**
 
 <table>
   <thead>
@@ -74,7 +74,7 @@ The ALU (Arithmetic Logic Unit) is the part of the computer's processor that doe
   <tbody>
     <tr>
       <td>NOT</td>
-      <td>MicroCode bit</td>
+      <td>FSM:0 / MiCd:1</td>
       <td colspan="6">FSM / MiCd Select Bits</td>
     </tr>
   </tbody>
@@ -109,11 +109,14 @@ The ALU (Arithmetic Logic Unit) is the part of the computer's processor that doe
 | 0x0C   | FSM  | SHR       | n+1         | NA        |
 | 0x0D   | FSM  | SHL       | n+1         | NA        |
 
-* Extended Basic Math
+* Extended Operations
 
 
 | OpCode | Type | Operation | Clock Cycle | Specialty |
 | ------ | :--- | --------- | ----------- | --------- |
+| 0x0E   | FSM  | ADC       | 1           | NA        |
+| 0x0F   | FSM  | TEST      | 1           | NA        |
+| 0x10   | FSM  | CMP       | 1           | NA        |
 | 0x40   | MiCd | MUL       | n+1         | NA        |
 | 0x41   | MiCd | DIV       | lb+1        | NA        |
 
